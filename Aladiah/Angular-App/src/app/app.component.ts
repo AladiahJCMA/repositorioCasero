@@ -31,7 +31,6 @@ export class AppComponent {
     ) {}
 
   ngOnInit() {
-    this.postService.getPostsBySubtheme(10).subscribe((e) => console.log(e));
     if(this.cookieService.check('loginCookie')) {
       console.log('login cookie');
       const cookie = this.cookieService.get('loginCookie');
@@ -89,7 +88,7 @@ export class AppComponent {
 
     }).afterClosed().subscribe((result) => {
       if(result.data) {
-        window.location.reload();
+        this.ngOnInit();
       }
     });
   }
@@ -102,7 +101,7 @@ export class AppComponent {
       maxHeight: '60vh',
     }).afterClosed().subscribe((result) => {
       if(result.data) {
-        window.location.reload();
+        this.ngOnInit();
       }
     });
   }

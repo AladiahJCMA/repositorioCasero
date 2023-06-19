@@ -1,8 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
-  overflow-x: hidden;
 }
   
 .parent {
@@ -43,7 +41,7 @@ mat-tree-icon {
   transition: visibility 0s, opacity 0.5s linear;
 }
 
-#menu-icon > img {
+#menu-icon > a > img {
   margin: 10px;
   width: 5vw;
 }
@@ -94,7 +92,6 @@ mat-tree {
   visibility: hidden;
   opacity: 0;
   display: flex;
-  margin-top: 10vh;
   justify-content: center;
   transition: visibility 0s, opacity 0.5s linear;
   margin-left: 5px;
@@ -212,4 +209,8 @@ mat-checkbox {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+app-subtheme {
+  overflow-y: auto !important;
 }

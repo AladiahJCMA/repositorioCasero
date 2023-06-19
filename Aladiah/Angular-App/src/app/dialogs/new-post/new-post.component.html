@@ -29,6 +29,7 @@
             <mat-form-field>
                 <mat-label>Subtheme 2: </mat-label>
                 <mat-select matInput formControlName="subtheme2">
+                  <mat-option [value]="''">-</mat-option>
                   <mat-option *ngFor="let subtheme2 of subthemes" [value]="subtheme2.id">
                     {{ subtheme2.name }}
                   </mat-option>
@@ -38,6 +39,7 @@
             <mat-form-field>
                 <mat-label>Subtheme 3: </mat-label>
                 <mat-select matInput formControlName="subtheme3">
+                  <mat-option [value]="''">-</mat-option>
                   <mat-option *ngFor="let subtheme3 of subthemes" [value]="subtheme3.id">
                     {{ subtheme3.name }}
                   </mat-option>

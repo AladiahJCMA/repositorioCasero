@@ -53,20 +53,24 @@ export class SubthemeComponent {
     this.posts = [];
     this.activatedRoute.paramMap
     .subscribe((params: ParamMap) => {
-      if(params.get('id') !== null) {
+      if(params.get('id') === 'top') {
+        this.postService.getPostsByScore().subscribe((e: any) => {
+          this.posts = e;
+          console.log(this.posts);
+        });
+      } else if(params.get('id') !== null) {
         this.subthemeId = parseInt(params.get('id')!);
+        this.postService.getPostsBySubtheme(this.subthemeId!)
+        .subscribe((e: any) => {
+          this.posts = e;
+          console.log(this.posts);
+        });
+
+        this.sharedData.data.subscribe((data: User | null) => {
+          this.user = data;
+          console.log(this.user);
+        });
       }
-    });
-
-    this.postService.getPostsBySubtheme(this.subthemeId!)
-    .subscribe((e: any) => {
-      this.posts = e;
-      console.log(this.posts);
-    });
-
-    this.sharedData.data.subscribe((data: User | null) => {
-      this.user = data;
-      console.log(this.user);
     });
   }
 

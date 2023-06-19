@@ -10,17 +10,24 @@
     font-family: 'Roboto';
 }
 
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
 .post {
     border: 2px solid black;
     border-radius: 10px;
     display: block;
-    margin-top: 20px;
+    margin-top: 25px;
     margin-left: 110px;
     margin-right: 0px;
     padding: 20px;
     width: 35%;
     text-align: justify;
     background-color: rgb(7, 29, 66);
+    margin-bottom: 15px;
 }
 
 .post-name {

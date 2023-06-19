@@ -19,7 +19,7 @@ export class PostService {
   }
 
   getPostsByScore() {
-    return this.http.get(`${url}/posts/score`);
+    return this.http.get(`${url}/posts-score`);
   }
 
   getPostTypes() {

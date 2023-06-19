@@ -53,14 +53,18 @@ export class NewPostComponent {
   });
 
   newPost() {
+    this.sharedData.data
+    .subscribe((data: User | null) => {
+      this.user = data;
+    });
     if (!this.newPostForm.invalid && this.user !== null) {
       const nPost: Post = {
         id: 1,
         type: this.newPostForm.get('type')!.value!,
         creatorId: this.user.id,
         subtheme1: parseInt(this.newPostForm.get('subtheme1')!.value!),
-        subtheme2: parseInt(this.newPostForm.get('subtheme2')!.value!),
-        subtheme3: parseInt(this.newPostForm.get('subtheme3')!.value!),
+        subtheme2: (this.newPostForm.get('subtheme2')!.value === '')? null : parseInt(this.newPostForm.get('subtheme2')!.value!),
+        subtheme3: (this.newPostForm.get('subtheme3')!.value === '')? null : parseInt(this.newPostForm.get('subtheme3')!.value!),
         name: this.newPostForm.get('name')!.value!,
         description: this.newPostForm.get('description')!.value!,
         originalCode: this.newPostForm.get('originalCode')!.value!,
@@ -70,6 +74,7 @@ export class NewPostComponent {
       };
       this.postService.postPost(nPost)
       .subscribe((e: boolean | any) => {
+        console.log(nPost);
         if(e) {
           this.DialogRef
           .close({ data: true });
