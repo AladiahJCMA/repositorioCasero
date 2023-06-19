@@ -1,0 +1,20 @@
+VALIDAR LOS DATOS ANTES DE CREAR EL USUARIO O POST, USAREL FILTRO DE PHP!!!
+
+Confirmar que el usuario y email sean unicos de forma asincrona en front 
+
+deleteUser hay que comprobar
+
+crear cookie en BD, usar md5
+
+PÁGINA 13 DE LA DOCUMENTACIÓN, AÑADIR PRUEBAS UNITARIAS Y DE INTEGRACIÓN, SEGUIR CON CONTROLADORES
+
+estilos a registro y login
+
+crear componentes de:
+
+-dialogo para posts
+-dialogo temas y subtemas si se es admin o root (2 en 1 como login y register)
+-pantalla principal - top scores (crear controlador y SQL de top scores, limit 10)
+-posts by subtheme
+-posts by theme (?)
+-specific post

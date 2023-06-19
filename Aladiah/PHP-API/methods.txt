@@ -1,0 +1,63 @@
+users -> 
+    registerUser
+    login
+    verifyUser (?)
+    verifyPremium (called on login if role is premium)
+    votePositive
+    voteNegative
+    removeVote
+
+postTypes ->
+    createPostType
+    deletePostType
+    obtainPostTypes (used to make a option select when creating the post)
+
+themes ->
+    createTheme
+    deleteTheme
+    getAllThemes (used to make the menu)
+
+subthemes ->
+    createSubtheme
+    deleteSubtheme
+    getSubthemes (used to make the menu, as well as a select input for the post form)
+
+posts ->
+    createPost
+    deletePost
+    editPost
+    verifyPost
+    countScore
+
+
+login segun chatgpt
+
+Handling logins and securely saving the logged-in user's information in cache in a Single Page Application (SPA) involves several considerations.
+Here's a general approach to accomplish this:
+
+1. Authentication API: Create an API on the server-side to handle user authentication.
+    This API should handle user login, validate credentials, and generate a secure session token (e.g., JSON Web Token or JWT) 
+    upon successful authentication.
+
+2. Securely storing tokens: Once the user is authenticated, receive the session token from the server.
+    Store the token securely in the browser's storage, such as localStorage or sessionStorage, using JavaScript.
+    Make sure to protect it from cross-site scripting (XSS) attacks by encoding and decoding the token properly.
+
+3. Authorization headers: For subsequent requests to the server, include the session token in the authorization header to authenticate the user.
+    This helps the server validate the user's identity and authorize their actions.
+
+4. Protecting sensitive routes: Implement guards or middleware in your client-side framework to restrict access to sensitive routes or resources.
+    These guards should check for the presence of a valid session token and deny access if the user is not authenticated.
+
+5. Cache user information: Upon successful login, cache the user's information in memory or a state management system provided by your framework.
+    This way, you can access and utilize the user's data within the application without needing to fetch it from the server repeatedly.
+
+6. Clearing cache on logout: Implement a logout mechanism that clears the session token and removes the user's cached
+    information from memory or state management. This ensures that user data is properly cleared when the user logs out.
+
+7. Security considerations: Ensure that the SPA communicates with the server over HTTPS to encrypt the data in transit.
+    Implement other security measures, such as using secure cookies, setting proper security headers,
+    and implementing additional server-side validation to protect against potential security vulnerabilities.
+
+Remember that security is a complex and evolving topic. It's crucial to follow best practices, stay updated on security vulnerabilities,
+and regularly test and audit your application's security measures.
