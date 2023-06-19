@@ -1,0 +1,33 @@
+<div ngClass="post" *ngFor="let post of posts">
+    <div ngClass="post-name">Title: {{ post.name }}</div>
+    <div ngClass="post-subthemes">
+        <p>Subthemes: </p>
+        <div>
+            <a [routerLink]="['/subtheme/' + post.subtheme1]">{{ post.subtheme1name }}</a>
+        </div>
+        <div *ngIf="post.subtheme2name !== null">
+            <a [routerLink]="['/subtheme/' + post.subtheme2]">{{ post.subtheme2name }}</a>
+        </div>
+        <div *ngIf="post.subtheme3name !== null">
+            <a [routerLink]="['/subtheme/' + post.subtheme3]">{{ post.subtheme3name }}</a>
+        </div>
+    </div>
+    <div ngClass="post-description">
+        Description: {{ post.description }}
+    </div>
+    <div ngClass="score-box" *ngIf="this.user !== null">
+        <div ngClass="score">
+            <button (click)="vote(post.id, true)">
+                <mat-icon ngClass="excluded">mood</mat-icon>
+            </button>
+    
+            <p>
+                Score: {{ post.score }}
+            </p>
+    
+            <button (click)="vote(post.id, false)">
+                <mat-icon ngClass="excluded">mood_bad</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

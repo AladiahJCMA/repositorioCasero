@@ -1,0 +1,84 @@
+<div ngClass="close" (click)="close()">
+    <mat-icon>close</mat-icon>
+</div>
+
+<mat-tab-group>
+
+    <mat-tab label="Register">
+
+        <form [formGroup]="registerForm">
+        
+            <mat-form-field>
+                <mat-label for="registerUsername">Username: </mat-label>
+                <input matInput type="text" id="registerUsername" formControlName="rUsername" (input)="checkUsername($event)">
+                <mat-hint class="empty" *ngIf="uniqueUsername">
+                    This username is taken
+                </mat-hint>
+            </mat-form-field>    
+                
+            <mat-form-field>
+                <mat-label for="registerEmail">e-mail: </mat-label>
+                <input matInput type="email" id="registerEmail" formControlName="rEmail" (input)="checkEmail($event)">
+                <mat-hint *ngIf="uniqueEmail">
+                    This email has already been registered
+                </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="registerPassword">Password: </mat-label>
+                <input matInput type="password" id="registerPassword" formControlName="rPassword">
+            </mat-form-field>
+
+            <div className="formButtons">
+                <button
+                    className="formButton"
+                    mat-raised-button
+                    color="primary"
+                    type="button"
+                    (click)="registerUser()">
+                    <mat-icon>save_alt</mat-icon>
+                    Register
+                </button>
+            </div>
+
+            <mat-error *ngIf="error">
+                The email must be valid and unique, and the username must be unique
+            </mat-error>
+        </form>
+        
+    </mat-tab>
+    <mat-tab label="Login">
+
+        <form [formGroup]="loginForm">
+
+            <mat-form-field>
+                <mat-label for="loginUsername">Username: </mat-label>
+                <input matInput type="text" id="loginUsername" formControlName="lUsername">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="loginPassword">Password: </mat-label>
+                <input matInput type="password" id="loginPassword" formControlName="lPassword">
+            </mat-form-field>
+
+            <mat-checkbox id="setCookie" formControlName="setCookie">
+                Keep the session active?
+            </mat-checkbox>
+            
+            <div className="formButtons">
+                <button
+                    className="formButton"
+                    mat-raised-button
+                    color="primary"
+                    type="button"
+                    (click)="login()">
+                    <mat-icon>save_alt</mat-icon>
+                    Register
+                </button>
+            </div>
+
+        </form>
+
+    </mat-tab>
+
+</mat-tab-group>

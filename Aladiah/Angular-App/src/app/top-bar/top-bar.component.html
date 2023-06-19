@@ -1,0 +1,38 @@
+<div ngClass="top-bar">
+
+    <button 
+        *ngIf="user !== null && (user.role === 'admin' || user.role === 'root')" 
+        mat-icon-button
+        mat-icon-button (click)="configDialog!()"
+        ngClass="config">
+        <mat-icon>settings</mat-icon>
+        Settings
+    </button>
+
+    <button 
+        *ngIf="user !== null" 
+        mat-icon-button
+        mat-icon-button (click)="openNewPostDialog!()"
+        ngClass="newPost">
+        <mat-icon>note_add</mat-icon>
+        New post
+    </button>
+
+    <button 
+        *ngIf="user === null" 
+        mat-icon-button 
+        (click)="this.openRegisterLoginDialog!()"
+        ngClass="rlButton">
+        
+        Register / Login
+    </button>
+
+    <button 
+        *ngIf="user !== null" 
+        mat-icon-button
+        mat-icon-button (click)="openDetailsDialog!()"
+        ngClass="loginButton">
+        <mat-icon>account_circle</mat-icon>
+        {{ user.username }}
+    </button>
+</div>

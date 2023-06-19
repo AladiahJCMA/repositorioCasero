@@ -1,0 +1,18 @@
+<app-nav-bar class="div1"></app-nav-bar>
+
+<app-top-bar class="div2" 
+  [openRegisterLoginDialog]="openRegisterLoginDialog"
+  [openDetailsDialog]="openDetailsDialog"
+  [configDialog]="configDialog"
+  [openNewPostDialog]="openNewPostDialog"
+></app-top-bar>
+
+<div  class="div3">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->

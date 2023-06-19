@@ -1,0 +1,56 @@
+<div ngClass="close" (click)="close()">
+    <mat-icon>close</mat-icon>
+</div>
+
+<mat-tab-group>
+
+    <mat-tab label="Account">
+
+        <form [formGroup]="editForm">
+
+            <mat-form-field class="full-width">
+                <mat-label for="detailsUsername" >Account Name: </mat-label>
+                <input matInput id="detailsUsername" formControlName="username">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="detailsEmail">Email: </mat-label>
+                <input matInput id="detailsEmail" formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="detailsPassword">Password: </mat-label>
+                <input matInput id="detailsPassword" formControlName="password">
+            </mat-form-field>
+
+            <div className="formButtons">
+
+                <button
+                    className="formButton"
+                    mat-raised-button
+                    color="primary"
+                    type="button"
+                    (click)="updateUser()">
+                    <mat-icon>edit</mat-icon>
+                    Update
+                </button>
+
+                <button
+                    className="formButton"
+                    mat-raised-button
+                    color="warn"
+                    type="button"
+                    (click)="closeSession()">
+                    <mat-icon>block</mat-icon>
+                    End session
+                </button>
+            </div>
+
+            <mat-error *ngIf="error">
+                The email must be valid and unique, and the username must be unique
+            </mat-error>
+
+        </form>
+
+    </mat-tab>
+</mat-tab-group>

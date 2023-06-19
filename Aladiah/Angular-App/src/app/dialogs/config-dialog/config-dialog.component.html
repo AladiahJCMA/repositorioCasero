@@ -1,0 +1,88 @@
+<div ngClass="close" (click)="close()">
+    <mat-icon>close</mat-icon>
+</div>
+
+<mat-tab-group>
+
+    <mat-tab label="New theme">
+
+        <form [formGroup]="newThemeForm">
+
+            <mat-form-field>
+                <mat-label for="newTheme">Theme: </mat-label>
+                <input matInput type="text" id="newTheme" formControlName="name">
+            </mat-form-field>
+
+            <div className="formButtons">
+                <button
+                    className="formButton"
+                    mat-raised-button
+                    color="secondary"
+                    type="button"
+                    (click)="newTheme()">
+                    <mat-icon>add</mat-icon>
+                    Save
+                </button>
+            </div>
+        </form>
+
+    </mat-tab>
+
+    <mat-tab label="New subtheme">
+
+        <form [formGroup]="newSubthemeForm">
+
+            <mat-form-field>
+                <mat-label for="newSubtheme">Subtheme: </mat-label>
+                <input matInput type="text" id="newSubtheme" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Theme: </mat-label>
+                <mat-select formControlName="theme">
+                  <mat-option *ngFor="let theme of themes" [value]="theme.id">
+                    {{ theme.name }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div className="formButtons">
+                <button
+                    className="formButton"
+                    mat-raised-button
+                    color="secondary"
+                    type="button"
+                    (click)="newSubtheme()">
+                    <mat-icon>add</mat-icon>
+                    Save
+                </button>
+            </div>
+        </form>
+
+    </mat-tab>
+
+    <mat-tab label="New post type">
+
+        <form [formGroup]="newPostTypeForm">
+
+            <mat-form-field>
+                <mat-label for="newPostType">Post type: </mat-label>
+                <input matInput type="text" id="newPostType" formControlName="type">
+            </mat-form-field>
+
+            <div className="formButtons">
+                <button
+                    className="formButton"
+                    mat-raised-button
+                    color="secondary"
+                    type="button"
+                    (click)="newPostType()">
+                    <mat-icon>add</mat-icon>
+                    Save
+                </button>
+            </div>
+        </form>
+
+    </mat-tab>
+
+</mat-tab-group>

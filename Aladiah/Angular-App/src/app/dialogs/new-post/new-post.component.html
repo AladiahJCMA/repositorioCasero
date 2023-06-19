@@ -1,0 +1,87 @@
+<div ngClass="close" (click)="close()">
+  <mat-icon>close</mat-icon>
+</div>
+
+<mat-tab-group>
+
+    <mat-tab label="New post">
+
+        <form [formGroup]="newPostForm">
+
+            <mat-form-field>
+                <mat-label for="new-post-type">Post type: </mat-label>
+                <mat-select matInput formControlName="type" id="new-post-type">
+                  <mat-option *ngFor="let type of types" [value]="type">
+                    {{ type }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Subtheme 1: </mat-label>
+                <mat-select matInput formControlName="subtheme1">
+                  <mat-option *ngFor="let subtheme1 of subthemes" [value]="subtheme1.id">
+                    {{ subtheme1.name }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Subtheme 2: </mat-label>
+                <mat-select matInput formControlName="subtheme2">
+                  <mat-option *ngFor="let subtheme2 of subthemes" [value]="subtheme2.id">
+                    {{ subtheme2.name }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Subtheme 3: </mat-label>
+                <mat-select matInput formControlName="subtheme3">
+                  <mat-option *ngFor="let subtheme3 of subthemes" [value]="subtheme3.id">
+                    {{ subtheme3.name }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="new-post-name">Name: </mat-label>
+                <input matInput type="text" id="new-post-name" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="new-post-desc">Descrition: </mat-label>
+                <textarea matInput id="new-post-desc" formControlName="description"></textarea>
+            </mat-form-field>
+
+            <mat-checkbox id="new-post-original-code" formControlName="originalCode">
+                Does the code belong to you?
+            </mat-checkbox>
+
+            <mat-form-field>
+                <mat-label for="new-post-link">Link to the code: </mat-label>
+                <input matInput type="text" id="new-post-link" formControlName="link">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label for="new-post-demo">Link to a demo: </mat-label>
+                <input matInput type="text" id="new-post-demo" formControlName="demo">
+            </mat-form-field>
+
+            <div className="formButtons">
+                <button
+                  className="formButton"
+                  mat-raised-button
+                  color="secondary"
+                  type="button"
+                  (click)="newPost()">
+                  <mat-icon>publish</mat-icon>
+                  Publish
+                </button>
+            </div>
+
+        </form>
+
+    </mat-tab>
+
+</mat-tab-group>
