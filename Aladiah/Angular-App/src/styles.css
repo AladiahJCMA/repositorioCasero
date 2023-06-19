@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
   
 .parent {
@@ -65,6 +67,29 @@ mat-tree-node {
   margin-left: 20px;
 }
 
+app-about-me {
+  display: block;
+  height: 100%;
+}
+
+.div-am {
+  margin-top: 5px;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  margin-top: 10vh;
+  transition: visibility 0s, opacity 0.5s linear;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.about-me {
+  margin-left: 5px;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 5px;
+}
+
 mat-tree {
   visibility: hidden;
   opacity: 0;
@@ -89,11 +114,17 @@ a:hover, a:visited, a:link, a:active {
   opacity: 1;
 }
 
+.div1:hover > .div-am {
+  visibility: visible;
+  opacity: 1;
+  margin-top: 5px;
+}
+
 .div1:hover > #menu-icon {
   visibility: visible;
   opacity: 1;
 }
-  
+
 .div2 {
   grid-area: 1 / 2 / 2 / 2;
   background-color: #1a9ce2;
@@ -172,9 +203,13 @@ mat-checkbox {
 
 .formButtons {
   display: flex !important;
+  margin: 0;
 }
 
 .formButton {
   flex-grow: 1 !important;
   width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

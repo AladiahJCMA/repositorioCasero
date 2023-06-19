@@ -2,8 +2,10 @@
     <img src="../../assets/icon.png" alt="">
 </div>
 
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
 
+
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
 
         <a [routerLink]="['/subtheme/' + node.id]">{{ node.name }}</a>
@@ -40,3 +42,7 @@
     </mat-nested-tree-node>
 
 </mat-tree>
+
+<div class="div-am">
+    <a class="about-me" [routerLink]="['/about-me']">About me</a>
+</div>
