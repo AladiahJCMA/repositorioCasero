@@ -9,7 +9,7 @@ import { AboutMeComponent } from './main-page/about-me/about-me.component';
 const routes: Routes = [
   { path: 'subtheme/:id', component: SubthemeComponent, runGuardsAndResolvers: 'always'},
   { path: 'post/:id', component: PostComponent},
-  { path: 'about-me', component: AboutMeComponent}
+  { path: 'about-me', component: AboutMeComponent},
 ];
 
 @NgModule({

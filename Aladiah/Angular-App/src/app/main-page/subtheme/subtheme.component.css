@@ -16,6 +16,24 @@
     overflow: auto;
 }
 
+.div-link {
+    margin: 5px 0px 5px 3px;
+}
+
+.div-link > a {
+    color: white;
+    margin-left: 5px;
+}
+
+.div-demo {
+    margin: 5px 0px 5px 3px;
+}
+
+.div-demo > a {
+    color: white;
+    margin-left: 5px;
+}
+
 .post {
     border: 2px solid black;
     border-radius: 10px;
@@ -100,3 +118,11 @@
     background-color: transparent;
     border: 0 !important;
 }
+
+.post-subthemes > div > a:hover,
+.post-subthemes > div > a:visited,
+.post-subthemes >  div > a:link,
+.post-subthemes > div > a:active {
+    text-decoration: none;
+    color: black;
+  }

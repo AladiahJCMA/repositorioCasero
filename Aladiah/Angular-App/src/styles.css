@@ -97,7 +97,7 @@ mat-tree {
   margin-left: 5px;
 }
 
-a:hover, a:visited, a:link, a:active {
+mat-tree-node > a:hover, mat-tree-node > a:visited, mat-tree-node > a:link, mat-tree-node > a:active {
   text-decoration: none;
   color: black;
 }

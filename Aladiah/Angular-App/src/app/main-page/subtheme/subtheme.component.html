@@ -17,6 +17,15 @@
         <div ngClass="post-description">
             Description: {{ post.description }}
         </div>
+
+        <div ngClass="div-link" *ngIf="post.link !== null && post.link !== ''">
+            <p>Repository link: </p><a href={{post.link}}>{{ post.link }} </a>
+        </div>
+
+        <div ngClass="div-demo" *ngIf="post.linkDemo !== null && post.linkDemo !== ''">
+            <p>Demo link: </p><a href={{post.linkDemo}}>{{ post.linkDemo }} </a>
+        </div>
+
         <div ngClass="score-box" *ngIf="this.user !== null">
             <div ngClass="score">
                 <button (click)="vote(post.id, true)">
